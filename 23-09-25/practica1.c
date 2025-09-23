@@ -35,8 +35,11 @@ int main()
   // ejercicio 3
   printf("\n######### Ejercicio 3 #########\n\n");
 
-  printf("Op_1: %d\n", !(a - 5 >= b + 9 && b != a));
-  printf("Op_2: %d\n", (b * 5 < a / 3) || !(a == pow(b, 2)));
+  const int op_1 = !(a - 5 >= b + 9 && b != a);
+  const int op_2 = (b * 5 < a / 3) || !(a == pow(b, 2));
+
+  printf("Op_1: %d -> %s\n", op_1, esVerdadero(op_1));
+  printf("Op_2: %d -> %s\n", op_2, esVerdadero(op_2));
 
   // ejercicio 4
   printf("\n######### Ejercicio 4 #########\n\n");
