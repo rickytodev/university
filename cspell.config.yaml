@@ -1,0 +1,14 @@
+version: "0.2"
+ignorePaths: []
+dictionaryDefinitions: []
+dictionaries: []
+words:
+  - Aritmeticos
+  - Asignacion
+  - calificacion
+  - caracter
+  - Comparacion
+  - Logicas
+  - Multiplicacion
+ignoreWords: []
+import: []
