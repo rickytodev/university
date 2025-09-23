@@ -60,7 +60,7 @@ int main()
   // agregamos el IVA al boleto (1.16)
   const float c_ticket = (t_klm * c_klm) * 1.16;
 
-  printf("Origen: %s\nDestino: %s\nKilometros: %.2f\nCosto por Kilometro: %.2f\nCosto Total (+IVA): %.2f\n\n", origen, destino, t_klm, c_klm, c_ticket);
+  printf("\nOrigen: %s\nDestino: %s\nKilometros: %.2f\nCosto por Kilometro: %.2f\nCosto Total (+IVA): %.2f\n", origen, destino, t_klm, c_klm, c_ticket);
 
   // ejercicio #3
   printf("\nEjercicio #3\n");
@@ -104,7 +104,7 @@ int main()
   printf("Op_6 = %d\n", 8 + 7 % 5 % 3 * 2);
   printf("Op_7 = %d\n", (pow(5, 2) - 16 % 11) <= 20 || 18 / 3 != 7);
   printf("Op_8 = %d\n", (!(10 == 10 || 5 > 3)) && 15 - 10 < 5);
-  printf("Op_9 = %d\n", !(17 >= pow(6, 2) || (13 - 7 * 3 % 2 != 4 * 5 % 2)));
+  printf("Op_9 = %d\n\n", !(17 >= pow(6, 2) || (13 - 7 * 3 % 2 != 4 * 5 % 2)));
 
   return 0;
 }
