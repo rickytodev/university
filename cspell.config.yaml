@@ -15,5 +15,6 @@ words:
   - kilometros
   - Logicas
   - Multiplicacion
+  - parametros
 ignoreWords: []
 import: []
