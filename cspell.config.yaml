@@ -3,6 +3,7 @@ ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - anio
   - anios
   - Aritmeticos
   - Asignacion
@@ -11,10 +12,13 @@ words:
   - codigo
   - Comparacion
   - CUCEI
+  - dias
+  - Jeshua
   - kilometro
   - kilometros
   - Logicas
   - Multiplicacion
   - parametros
+  - Reynozo
 ignoreWords: []
 import: []
