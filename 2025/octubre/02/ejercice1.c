@@ -5,13 +5,13 @@
 
 #include <stdio.h>
 
-int proceso(int n)
+float proceso(float n)
 {
   // definimos el valor del euro
   const float euros = 21.45;
 
   // realizamos la operación
-  const float operation = n * euros;
+  const float operation = n / euros;
 
   // retornamos el valor
   return operation;
@@ -20,14 +20,14 @@ int proceso(int n)
 int main()
 {
   // definimos la variables para guardar los pesos a convertir
-  int money;
+  float money;
 
   // solicitamos al usuario la cantidad de pesos a convertir
-  printf("Cantidad de pesos: $");
-  scanf("%d", &money);
+  printf("Ingrese la cantidad de pesos a convertir: $");
+  scanf("%f", &money);
 
   // imprimimos el resultado
-  printf("$%d, equivalen a: €%.2f\n", money, proceso(money));
+  printf("$%.2f pesos equivalen a %.2f Euros\n", money, proceso(money));
 
   // terminamos la función main
   return 0;

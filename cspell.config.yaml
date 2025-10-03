@@ -13,6 +13,7 @@ words:
   - Comparacion
   - CUCEI
   - dias
+  - ganá
   - Jeshua
   - kilometro
   - kilometros
@@ -20,5 +21,6 @@ words:
   - Multiplicacion
   - parametros
   - Reynozo
+  - tendra
 ignoreWords: []
 import: []
