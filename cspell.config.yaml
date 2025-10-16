@@ -9,10 +9,13 @@ words:
   - Asignacion
   - calificacion
   - caracter
+  - celsius
   - codigo
   - Comparacion
   - CUCEI
   - dias
+  - farenheit
+  - Farenheit
   - ganá
   - Inscripcion
   - Jeshua
@@ -21,9 +24,11 @@ words:
   - Logicas
   - Miercoles
   - Multiplicacion
+  - numeros
   - parametros
   - Reynozo
   - Sabado
+  - sobreescritura
   - tendra
 ignoreWords: []
 import: []
