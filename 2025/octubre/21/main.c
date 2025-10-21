@@ -68,43 +68,69 @@ int main()
   // ejemplo 4
   printf("\n\nEjemplo 4 - Abecedario en rango definido por el usuario\n");
 
-  int finish;
+  int render_answer = 0, init = 0, end = 0;
 
-  while (finish)
+  printf("Los numeros que puedes ingresar son del 1 al 26, donde 1 es A y 26 es Z\n\n");
+
+  while (1)
   {
-
-    int init, end;
-
-    printf("\nIngresa el número de la letra inicial (A=1, B=2, ..., Z=26): ");
-    scanf("%d", &init);
-
-    if (init > 26 || init < 0)
+    if (init > 0 && end > 0 && init > end)
     {
-      printf("Los datos ingresados no son correctos\n");
+      printf("\n[ERROR] El número de la letra inicial no puede ser mayor al de la letra final\n\n");
+
+      // regresamos los valores a su estado inicial
+      init = 0;
+      end = 0;
+      render_answer = 0;
+
       continue;
     }
 
-    printf("Ingresa el número de la letra final (A=1, B=2, ..., Z=26): ");
-    scanf("%d", &end);
-
-    if (end > 26 || end < 0)
+    if (render_answer == 1)
     {
-      printf("Los datos ingresados no son correctos\n");
+      printf("\n---------------------------------------------------\n");
+
+      for (int i = init - 1; i < end; i++)
+      {
+        printf("%c ", 'A' + i);
+      }
+
+      printf("\n---------------------------------------------------\n\n");
+
+      // regresamos los valores a su estado inicial
+      render_answer = 0;
+      init = 0;
+      end = 0;
+
       continue;
     }
 
-    if (init > end)
+    if (init > 0)
     {
-      printf("No se puede realizar el conteo, la letra inicial es mayor que la letra final\n");
-      continue;
-    }
+      printf("Ingresa el número de la letra final: ");
+      scanf("%d", &end);
 
-    for (int i = init - 1; i < end; i++)
+      if (end > 26 || end < 0)
+      {
+        printf("\n[ERROR] Los datos ingresados no son correctos\n\n");
+        end = 0;
+      }
+      else
+      {
+        render_answer = 1;
+      }
+    }
+    else
     {
-      printf("%c ", 'A' + i);
-    }
+      printf("Ingresa el número de la letra inicial: ");
+      scanf("%d", &init);
 
-    printf("\n");
+      if (init > 26 || init < 0)
+      {
+        printf("\n[ERROR] Los datos ingresados no son correctos\n\n");
+        init = 0;
+      }
+    }
   }
 
   return 0;
