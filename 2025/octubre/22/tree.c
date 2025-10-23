@@ -13,17 +13,13 @@ void space(int length, char symbol)
 
 void tree(int length, int invert)
 {
-  for (int i = invert == 1 ? 0 : 1; i < length; i++)
+  for (int i = 0; i < length; i++)
   {
-    space(invert == 1 ? i : length - i, ' ');
-    for (int j = 0; invert == 1 ? j < length - i : j < i; j++)
-    {
+    space(invert == 1 ? i : length - i - 1, ' ');
+    for (int j = 0; invert == 1 ? j < length - i : j <= i; j++)
       printf("%c ", '*');
-    }
     if (i + 1 != length)
-    {
       printf("\n");
-    }
   }
 }
 
@@ -54,9 +50,7 @@ int main()
       tree(length, 0);
     }
     else
-    {
       tree(length, invert);
-    }
 
     printf("\n");
   }
