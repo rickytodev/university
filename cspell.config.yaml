@@ -13,7 +13,10 @@ words:
   - codigo
   - Comparacion
   - CUCEI
+  - decrementarlo
   - dias
+  - digito
+  - digitos
   - farenheit
   - Farenheit
   - ganá
@@ -26,9 +29,12 @@ words:
   - Multiplicacion
   - numeros
   - parametros
+  - rectangulo
   - Reynozo
   - Sabado
   - sobreescritura
   - tendra
+  - terminos
+  - ULAM
 ignoreWords: []
 import: []
