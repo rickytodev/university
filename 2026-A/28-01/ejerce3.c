@@ -42,7 +42,7 @@ int main()
         printf("Reprobaste el semestre, tu promedio es de %d/100", promedio);
     }
 
-    if (promedio >= 60 && promedio < 79)
+    if (promedio >= 60 && promedio <= 79)
     {
         printf("Tu promedio es regular, tu promedio es de %d/100", promedio);
     }
