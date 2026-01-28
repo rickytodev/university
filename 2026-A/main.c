@@ -6,7 +6,7 @@
 // Actividad: 2.1
 // Fecha: 28 / Enero / 2026
 
-void activity1()
+void ejerce1()
 {
 	int a, b, c;
 
@@ -57,7 +57,12 @@ void activity1()
 	}
 }
 
+void ejerce2 () {
+	int day, month;
+	
+}
+
 int main()
 {
-	activity1();
+	ejerce1();
 }
