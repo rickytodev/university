@@ -2,7 +2,7 @@
 // D07
 // Ricardo Jeshua Vega Garcia
 // 225976304
-// Fecha de entrega: 4-Febrero-2026
+// Fecha de entrega: 9-Febrero-2026
 // 2.6.- Ejercicios para reforzar con ciclos
 
 #include <stdio.h>
