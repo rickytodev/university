@@ -268,7 +268,7 @@ void employed_delete(struct __employeds employeds[])
 
 // ------------------- MODIFICACION -------------------
 
-void modify_data_employed(struct __employeds *employed)
+struct __employeds modify_data_employed(struct __employeds employed)
 {
     while (1)
     {
@@ -291,34 +291,34 @@ void modify_data_employed(struct __employeds *employed)
         {
         case 1:
             printf("Nuevo nombre completo: ");
-            fgets(employed->full_name, 250, stdin);
-            employed->full_name[strcspn(employed->full_name, "\n")] = '\0';
+            fgets(employed.full_name, 250, stdin);
+            employed.full_name[strcspn(employed.full_name, "\n")] = '\0';
             break;
         case 2:
             printf("Nuevo numero de telefono: ");
-            fgets(employed->phone_number, 250, stdin);
-            employed->phone_number[strcspn(employed->phone_number, "\n")] = '\0';
+            fgets(employed.phone_number, 250, stdin);
+            employed.phone_number[strcspn(employed.phone_number, "\n")] = '\0';
             break;
         case 3:
             printf("Nueva direccion: ");
-            fgets(employed->address, 250, stdin);
-            employed->address[strcspn(employed->address, "\n")] = '\0';
+            fgets(employed.address, 250, stdin);
+            employed.address[strcspn(employed.address, "\n")] = '\0';
             break;
         case 4:
             printf("Nuevo correo electronico: ");
-            fgets(employed->email, 250, stdin);
-            employed->email[strcspn(employed->email, "\n")] = '\0';
+            fgets(employed.email, 250, stdin);
+            employed.email[strcspn(employed.email, "\n")] = '\0';
             break;
         case 5:
             printf("Nuevo puesto: ");
-            fgets(employed->position, 250, stdin);
-            employed->position[strcspn(employed->position, "\n")] = '\0';
+            fgets(employed.position, 250, stdin);
+            employed.position[strcspn(employed.position, "\n")] = '\0';
             break;
         case 6:
             while (1)
             {
                 printf("Nuevo sueldo base: $");
-                if (scanf("%f", &employed->base_salary) == 1)
+                if (scanf("%f", &employed.base_salary) == 1)
                 {
                     clear_input_buffer();
                     break;
@@ -329,14 +329,14 @@ void modify_data_employed(struct __employeds *employed)
             break;
         case 7:
             printf("Nuevo horario: ");
-            fgets(employed->schedule, 250, stdin);
-            employed->schedule[strcspn(employed->schedule, "\n")] = '\0';
+            fgets(employed.schedule, 250, stdin);
+            employed.schedule[strcspn(employed.schedule, "\n")] = '\0';
             break;
         case 8:
             while (1)
             {
                 printf("Nueva comision: $");
-                if (scanf("%f", &employed->commission) == 1)
+                if (scanf("%f", &employed.commission) == 1)
                 {
                     clear_input_buffer();
                     break;
@@ -346,7 +346,7 @@ void modify_data_employed(struct __employeds *employed)
             }
             break;
         case 9:
-            return;
+            return employed;
         }
 
         printf("Dato modificado correctamente\n");
@@ -369,7 +369,7 @@ void employed_modify(struct __employeds employeds[])
     {
         if (_stricmp(employeds[i].full_name, full_name) == 0)
         {
-            modify_data_employed(&employeds[i]);
+            employeds[i] = modify_data_employed(employeds[i]);
             return;
         }
     }
