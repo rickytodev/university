@@ -76,6 +76,7 @@ typedef struct
 typedef struct
 {
     char product_clave[11]; // <- clave del producto vendido
+    char product[MAX_CHAR]; // <- nombre del producto vendido
     int quantity;           // <- cantidad vendida
     float total_price;      // <- precio total de la venta
     int month;              // <- mes de la venta (1-12)
@@ -199,21 +200,22 @@ void table_products(tProduct products[], char clave[11])
 
 void table_sales_head()
 {
-    repeat('-', 63, 1);
-    printf("| %-20s | %-10s | %-15s | %-5s |\n", "Clave Producto", "Cantidad", "Precio Total", "Mes");
-    repeat('-', 63, 1);
+    repeat('-', 86, 1);
+    printf("| %-15s | %-25s | %-10s | %-15s | %-5s |\n", "Clave Producto", "Producto", "Cantidad", "Precio Total", "Mes");
+    repeat('-', 86, 1);
 }
 
 void table_sales_row(tSale sales[], int idx)
 {
-    printf("| %-20s | %-10d | $%-14.2f | %-5d |\n",
+    printf("| %-15s | %-25s | %-10d | $%-14.2f | %-5d |\n",
            sales[idx].product_clave,
+           sales[idx].product,
            sales[idx].quantity,
            sales[idx].total_price,
            sales[idx].month);
 }
 
-void table_sales(tProduct products[], tSale sales[], char product_clave[11])
+void table_sales(tProduct products[], tSale sales[], char product_clave[11], int month)
 {
     clear_screen();
 
@@ -223,7 +225,20 @@ void table_sales(tProduct products[], tSale sales[], char product_clave[11])
         return;
     }
 
-    if (product_clave != NULL)
+    double total = 0;
+
+    if (month != 0)
+    {
+        table_sales_head();
+        for (int i = 0; i < count_sales; i++)
+            if (strlen(sales[i].product_clave) > 0 && sales[i].month == month)
+            {
+                table_sales_row(sales, i);
+                total += sales[i].total_price;
+                repeat('-', 86, 1);
+            }
+    }
+    else if (product_clave != NULL)
     {
         if (exist_producto_for_clave(products, product_clave) == 0)
         {
@@ -235,8 +250,8 @@ void table_sales(tProduct products[], tSale sales[], char product_clave[11])
             if (strcmp(sales[i].product_clave, product_clave) == 0)
             {
                 table_sales_row(sales, i);
-                repeat('-', 63, 1);
-                break;
+                repeat('-', 86, 1);
+                total += sales[i].total_price;
             }
     }
     else
@@ -246,9 +261,13 @@ void table_sales(tProduct products[], tSale sales[], char product_clave[11])
             if (strlen(sales[i].product_clave) > 0)
             {
                 table_sales_row(sales, i);
-                repeat('-', 63, 1);
+                repeat('-', 86, 1);
+                total += sales[i].total_price;
             }
     }
+
+    break_line(2);
+    printf("Total de ventas: $%.2f\n", total);
 }
 
 // -------------------------- MENU
@@ -564,6 +583,10 @@ void sales_capture(tProduct products[], tSale sales[])
     {
         clear_screen();
 
+        table_products(products, NULL);
+
+        break_line(2);
+
         char clave[11];
         printf("Ingresa la clave del producto a vender: ");
         scanf(" %10[^\n]", clave);
@@ -579,6 +602,7 @@ void sales_capture(tProduct products[], tSale sales[])
         }
 
         strcpy(sales[count_sales].product_clave, clave);
+        strcpy(sales[count_sales].product, products[idx - 1].product);
         break;
     }
 
@@ -648,13 +672,7 @@ void sales_capture(tProduct products[], tSale sales[])
     }
 
     count_sales++;
-    table_sales(products, sales, NULL);
-    stop(NULL);
-}
-
-void sales_for_month(tProduct products[], tSale sales[], int month)
-{
-    table_sales(products, sales, NULL);
+    table_sales(products, sales, NULL, 0);
     stop(NULL);
 }
 
@@ -691,6 +709,7 @@ int main()
 
     char *options_sales[] = {
         "Realizar venta",      // <- clave producto, cantidad, mes
+        "Ventas totales",      // <- selecciona clave producto y mes
         "Ventas por mes",      // <- selecciona clave producto y mes
         "Ventas por producto", // <- clave producto
     };
@@ -789,6 +808,8 @@ int main()
                         break;
                     }
 
+                    table_products(products, NULL);
+
                     printf("Ingresa la clave del producto a modificar: ");
                     scanf("%10s", clave);
 
@@ -825,13 +846,28 @@ int main()
             int flag = 1;
             while (flag)
             {
-                switch (menu("VENTAS", options_sales, 3))
+                switch (menu("VENTAS", options_sales, 4))
                 {
                 case 1:
                     sales_capture(products, sales);
                     break;
 
                 case 2:
+                {
+                    clear_screen();
+
+                    if (!exist_producs(products) || count_sales == 0)
+                    {
+                        stop("No hay productos registrados o no hay ventas");
+                        break;
+                    }
+
+                    table_sales(products, sales, NULL, 0);
+                    stop(NULL);
+                    break;
+                }
+
+                case 3:
                 {
                     clear_screen();
 
@@ -857,12 +893,13 @@ int main()
                         break;
                     }
 
-                    sales_for_month(products, sales, month);
+                    table_sales(products, sales, NULL, month);
+                    stop(NULL);
 
                     break;
                 }
 
-                case 3:
+                case 4:
                 {
                     clear_screen();
 
@@ -876,7 +913,8 @@ int main()
                     printf("Ingresa la clave del producto a consultar ventas: ");
                     scanf("%10s", clave);
 
-                    table_sales(products, sales, clave);
+                    table_sales(products, sales, clave, 0);
+                    stop(NULL);
 
                     break;
                 }
