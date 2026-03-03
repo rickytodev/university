@@ -1,7 +1,7 @@
 /*
     Estudiante: Ricardo Jeshua Vega Garcia
     Matricula: 225976304
-    Actividad: 3.2
+    Actividad: 3.3
     Fecha de entrega: 02 - Marzo - 2026
     Materia: Programación Estructurada
     Sección: D07
