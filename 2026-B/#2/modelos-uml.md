@@ -1,4 +1,4 @@
-# Modelos UML — `#2`
+# Modelos UML
 
 ## Persona
 

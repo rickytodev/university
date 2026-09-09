@@ -1,50 +1,52 @@
 version: "0.2"
 ignorePaths: []
 dictionaryDefinitions:
-  - name: custom-dictionary
-    path: ./.cspell/custom-dictionary.txt
-    addWords: true
+    - name: custom-dictionary
+      path: ./.cspell/custom-dictionary.txt
+      addWords: true
 dictionaries:
-  - custom-dictionary
+    - custom-dictionary
 words:
-  - anio
-  - anios
-  - Aritmeticos
-  - Asignacion
-  - calificacion
-  - caracter
-  - celsius
-  - codigo
-  - Comparacion
-  - CUCEI
-  - decrementarlo
-  - dias
-  - digito
-  - digitos
-  - Exupéry
-  - farenheit
-  - Farenheit
-  - Foquito
-  - ganá
-  - Inscripcion
-  - Jeshua
-  - kardex
-  - kilometro
-  - kilometros
-  - lenguage
-  - Logicas
-  - Miercoles
-  - Multiplicacion
-  - numeros
-  - parametros
-  - Principito
-  - rectangulo
-  - Reynozo
-  - Sabado
-  - Situacion
-  - sobreescritura
-  - tendra
-  - terminos
-  - ULAM
+    - anio
+    - anios
+    - Aritmeticos
+    - Asignacion
+    - calificacion
+    - caracter
+    - celsius
+    - codigo
+    - Comparacion
+    - CUCEI
+    - decrementarlo
+    - dias
+    - digito
+    - digitos
+    - Exupéry
+    - farenheit
+    - Farenheit
+    - Foquito
+    - ganá
+    - Inscripcion
+    - Jeshua
+    - kardex
+    - kilometro
+    - kilometros
+    - lenguage
+    - Logicas
+    - metodo
+    - Miercoles
+    - Multiplicacion
+    - Notacion
+    - numeros
+    - parametros
+    - Principito
+    - rectangulo
+    - Reynozo
+    - Sabado
+    - Situacion
+    - sobreescritura
+    - tendra
+    - terminos
+    - ULAM
 ignoreWords: []
 import: []
