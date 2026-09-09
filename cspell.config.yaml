@@ -1,7 +1,11 @@
 version: "0.2"
 ignorePaths: []
-dictionaryDefinitions: []
-dictionaries: []
+dictionaryDefinitions:
+  - name: custom-dictionary
+    path: ./.cspell/custom-dictionary.txt
+    addWords: true
+dictionaries:
+  - custom-dictionary
 words:
   - anio
   - anios
@@ -17,19 +21,23 @@ words:
   - dias
   - digito
   - digitos
+  - Exupéry
   - farenheit
   - Farenheit
+  - Foquito
   - ganá
   - Inscripcion
   - Jeshua
   - kardex
   - kilometro
   - kilometros
+  - lenguage
   - Logicas
   - Miercoles
   - Multiplicacion
   - numeros
   - parametros
+  - Principito
   - rectangulo
   - Reynozo
   - Sabado

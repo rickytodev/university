@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from typing import Literal
 
 parser = argparse.ArgumentParser(
-    description="Compilalor de proyectos de la universidad"
+    description="Compilador de proyectos de la universidad"
 )
 
 parser.add_argument(
@@ -54,9 +54,11 @@ print(f"🛠️ Compilando proyecto en {args.folder}...\n")
 
 files_routes: list[str] = []
 
+lenguage = args.lenguage if args.lenguage != "cpp" else "cpp"
+
 for root, dirs, files in os.walk(args.folder):
     for file in files:
-        extension: str = ".cpp" if args.lenguage == "c++" else ".c"
+        extension: str = ".c" if lenguage == "c" else ".cpp"
         if file.endswith(extension):
             files_routes.append(os.path.join(root, file))
 
@@ -69,7 +71,7 @@ program = os.path.join(path_build, "program")
 
 os.mkdir(path_build)
 
-builder = "gcc" if args.lenguage == "c" else "g++"
+builder = "gcc" if lenguage == "c" else "g++"
 
 print(f"🛠️ Compilando con {builder}...\n")
 
