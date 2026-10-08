@@ -1,7 +1,7 @@
 #ifndef ESTUDIANTE_H
 #define ESTUDIANTE_H
 
-#include <string>
+#include <string.h>
 
 using namespace std;
 
